@@ -1,1 +1,106 @@
 @import "tailwindcss";
+@import "@xyflow/react/dist/style.css";
+
+@layer base {
+  :root {
+    --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+  }
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: #030712;
+  color: #f3f4f6;
+  overflow: hidden;
+}
+
+/* React Flow custom Canvas styling */
+.react-flow__pane {
+  background-color: #030712;
+}
+
+.react-flow__background-pattern line {
+  stroke: rgba(255, 255, 255, 0.05);
+}
+
+.react-flow__background-pattern circle {
+  fill: rgba(255, 255, 255, 0.08);
+}
+
+/* Custom React Flow Controls & MiniMap */
+.react-flow__controls {
+  background: #0f172a !important;
+  border: 1px solid #1e293b !important;
+  border-radius: 8px !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5) !important;
+  overflow: hidden;
+}
+
+.react-flow__controls button {
+  background: #0f172a !important;
+  border-bottom: 1px solid #1e293b !important;
+  color: #94a3b8 !important;
+  fill: #94a3b8 !important;
+}
+
+.react-flow__controls button:hover {
+  background: #1e293b !important;
+  color: #f8fafc !important;
+  fill: #f8fafc !important;
+}
+
+.react-flow__minimap {
+  background: #090d16 !important;
+  border: 1px solid #1e293b !important;
+  border-radius: 8px !important;
+}
+
+/* Animated active edge stroke */
+@keyframes flowDash {
+  to {
+    stroke-dashoffset: -24;
+  }
+}
+
+.react-flow__edge.edge-active path {
+  stroke-dasharray: 6, 6;
+  animation: flowDash 0.8s linear infinite;
+}
+
+.react-flow__edge.edge-yes path {
+  stroke: #10b981;
+  stroke-width: 2.5px;
+}
+
+.react-flow__edge.edge-no path {
+  stroke: #f43f5e;
+  stroke-width: 2.5px;
+}
+
+.react-flow__edge.edge-active.edge-yes path {
+  filter: drop-shadow(0 0 6px rgba(16, 185, 129, 0.6));
+}
+
+.react-flow__edge.edge-active.edge-no path {
+  filter: drop-shadow(0 0 6px rgba(244, 63, 94, 0.6));
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(15, 23, 42, 0.5);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(51, 65, 85, 0.6);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(71, 85, 105, 0.8);
+}
